@@ -9,7 +9,7 @@ with the same exact logics    */
 function fixTheMeerkat(arr) {
  let newArr = []; 
  let item = 0;
- for(let i = 0; i < arr.length; i += 1){
+ while(arr.length != 0){
    let item = arr.pop();
    newArr.push(item); 
  } return newArr;
