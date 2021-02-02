@@ -22,15 +22,5 @@ If bonus is true, the salary should be multiplied by 10. If bonus is false, the 
 Return the total figure the individual will receive as a string prefixed with "£"   */
 
 function bonusTime(salary, bonus) {
-  let result = 0;
-  
-  switch(bonus) {
-    case 'true':
-      result = "£" + salary*10;    
-      break;
-    case 'false':
-      result = "£" + salary;    
-      break;
-  } 
-  return result;  
+return (bonus === true ? '£' + salary*10 : '£' + salary);
 }
