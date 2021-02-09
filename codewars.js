@@ -24,3 +24,12 @@ Return the total figure the individual will receive as a string prefixed with "�
 function bonusTime(salary, bonus) {
 return (bonus === true ? '£' + salary*10 : '£' + salary);
 }
+
+
+/*It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
+
+Return the average of the given array rounded down to its nearest integer.
+
+The array will never be empty   */
+
+
