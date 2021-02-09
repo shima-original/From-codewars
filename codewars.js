@@ -32,4 +32,12 @@ Return the average of the given array rounded down to its nearest integer.
 
 The array will never be empty   */
 
+function getAverage(marks){
+  let count = 0;
+   for (let item of marks) {
+    count += item;
+   }
+  return Math.round(count/marks.length);
+}
+
 
