@@ -35,7 +35,7 @@ function getAverage(marks){
    for (let item of marks) {
     count += item;
    }
-  return Math.round(count/marks.length);
+  return Math.floor(count/marks.length);
 }
 
 
