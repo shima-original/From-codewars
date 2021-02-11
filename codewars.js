@@ -57,7 +57,10 @@ function findDifference(a, b) {
 }
 
 
-//Your task is to find the first element of an array that is not consecutive.By not consecutive we mean not exactly 1 larger than the previous element of the array.
+/* Your task is to find the first element of an array that is not consecutive.
+By not consecutive we mean not exactly 1 larger than the previous element of the array.
+If the whole array is consecutive then return null. The array will always have at least 2 elements and all elements will be numbers. 
+The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too! */
 
 function firstNonConsecutive (arr) {
   for(let i = 0; i < arr.length; i += 1) {
