@@ -53,3 +53,16 @@ function preFizz(n) {
   } while(n > 0);
   return arr;
 }
+
+
+//  Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+function greet (name, owner) {
+  let result = (name === owner) ? "Hello boss" : "Hello guest";
+  return result;
+}
+
+//Implement a function which multiplies two numbers.
+
+
+
