@@ -20,3 +20,19 @@ function rentalCarCost(d) {
     count = 40*d;
   } return count;
 }
+
+//Given a year, return the century it is in.
+
+function century(year) {
+  let count = 1;
+  if (year <= 100) {
+    return count;
+  }
+  else {
+    do {
+    year -= 100;
+    count += 1;
+  } while(year > 100);
+  return count;
+ }
+}
