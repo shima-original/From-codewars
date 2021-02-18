@@ -13,7 +13,7 @@ function rentalCarCost(d) {
   if(d >= 7) {
     count = 40*d - 50;
   }
-  else if(3 <= d < 7) {
+  else if(3 <= d && d < 7) {
     count = 40*d - 20;
   }
   else {
