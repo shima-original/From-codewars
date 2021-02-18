@@ -5,6 +5,7 @@ function maps(x){
  return newX;
 }
 
+
 /*Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. 
 Alternatively, if you rent the car for 3 or more days, you get $20 off your total.Write a code that gives out the total amount for different days(d).*/
 
@@ -21,6 +22,7 @@ function rentalCarCost(d) {
   } return count;
 }
 
+
 //Given a year, return the century it is in.
 
 function century(year) {
@@ -35,4 +37,19 @@ function century(year) {
   } while(year > 100);
   return count;
  }
+}
+
+
+/* Your inputs: a positive integer, n, greater than or equal to one. n is provided, you have NO CONTROL over its value.
+Your expected output is an array of positive integers from 1 to n (inclusive). */
+
+function preFizz(n) {
+  let arr = [];
+  let count = 0;
+  do {
+    n -= 1;
+    count += 1;
+    arr.push(count);
+  } while(n > 0);
+  return arr;
 }
