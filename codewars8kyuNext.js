@@ -61,3 +61,17 @@ function getDrinkByProfession(param){
 function makeNegative(num) {
   return (num > 0) ? -num : num;
 }
+
+// Given a non-empty array of integers, return the result of multiplying the values together in order. 
+
+function grow(x){
+  let result = x[0];
+  for(let i = 1; i < x.length; i += 1) {
+    result *= x[i];
+  } return result;
+}
+
+
+
+
+
