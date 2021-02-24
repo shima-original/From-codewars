@@ -78,3 +78,13 @@ var summation = function (num) {
   }
   return result;
 }
+
+
+//You get an array of numbers, return the sum of all of the positives ones.
+
+function positiveSum(arr) {
+  let result = 0;
+  for(let item of arr) {
+    if(item > 0) result += item;
+  } return result;
+}
