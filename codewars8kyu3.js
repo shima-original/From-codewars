@@ -88,3 +88,10 @@ function positiveSum(arr) {
     if(item > 0) result += item;
   } return result;
 }
+
+
+//Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+
+function boolToWord( bool ){
+  return result = (bool === true) ? "Yes" : "No";
+}
