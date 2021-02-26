@@ -18,3 +18,9 @@ function uefaEuro2016(teams, scores){
   }
 }
 
+//Write a function which converts the input string to uppercase.
+function makeUpperCase(str) {
+  // Code here
+  return str.toUpperCase();
+}
+
