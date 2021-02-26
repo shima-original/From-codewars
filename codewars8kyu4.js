@@ -24,3 +24,17 @@ function makeUpperCase(str) {
   return str.toUpperCase();
 }
 
+
+//Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+function getGrade (s1, s2, s3) {
+  let score = (s1 + s2 + s3)/3;
+  let result;
+      if(90<=score && score<=100) result = "A";
+      else if(80<=score && score<90) result = "B";
+      else if(70<=score && score<80) result = "C";
+      else if(60<=score && score<70) result = "D";
+      else {
+        result = "F";
+      }
+  return result;
+}
