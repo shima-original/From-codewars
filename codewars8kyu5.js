@@ -9,3 +9,15 @@ function move (position, roll) {
 function solution(str){
   return str.split('').reverse().join('');
 }
+
+//Your task is to make two functions, max and min that take a array of integers list as input and outputs the largest and lowest number in that array/vector.
+
+let min = function(list){
+    list.sort((a,b) => a>b ? b:a);
+    return list[0];
+  };
+
+let max = function(list){
+  list.sort((a,b) => a<b ? b:a);
+  return list[0];
+};
