@@ -33,3 +33,26 @@ var Ball = function(ballType) {
     this.ballType = ballType;
   } return this.ballType;
 };
+
+/*Your function takes two arguments: current father's age (years),current age of his son (years)
+Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old).*/
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+   let counter = 0;
+   switch (dadYearsOld > sonYearsOld * 2) {
+       case 'true':
+         do {
+             dadYearsOld -= 1;
+             sonYearsOld -= 1;
+             counter += 1;
+          } while (dadYearsOld != sonYearsOld * 2);
+          break;
+       case 'false':
+                do {
+             dadYearsOld += 1;
+             sonYearsOld += 1;
+             counter += 1;
+          } while (dadYearsOld != sonYearsOld * 2);
+         break;
+   }  return counter;
+}
+
