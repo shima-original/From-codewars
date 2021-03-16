@@ -56,3 +56,24 @@ function twiceAsOld(dadYearsOld, sonYearsOld) {
    }  return counter;
 }
 
+
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  let counter = 0;
+  
+  if(dadYearsOld == sonYearsOld*2) {
+    return counter;
+  } else {
+    if(dadYearsOld > sonYearsOld*2) {
+      dadYearsOld -= 1;
+      sonYearsOld -= 1;
+      counter += 1;
+      twiceAsOld(dadYearsOld, sonYearsOld);
+    }
+      else if(dadYearsOld < sonYearsOld*2) {
+      dadYearsOld += 1;
+      sonYearsOld += 1;
+      counter += 1;
+      twiceAsOld(dadYearsOld, sonYearsOld);
+    }
+  }
+}
