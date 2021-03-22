@@ -10,9 +10,8 @@ function cockroachSpeed(s) {
 function nthEven(n){
   let arr = [];
   arr[0] = 0;
-  arr[1] = 2;
   
-  for(let index = 1; index <= n; index += 1) {
+  for(let index = 0; index <= n; index += 1) {
     arr[index+1] = arr[index] + 2;
   }
   
