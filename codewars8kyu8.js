@@ -7,13 +7,34 @@ function cockroachSpeed(s) {
 }
 
 //Return the Nth Even Number
+
 function nthEven(n){
+  return 2*(n-1);
+}
+
+//Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+
+function between(a, b) {
   let arr = [];
-  arr[0] = 0;
   
-  for(let index = 0; index <= n; index += 1) {
-    arr[index+1] = arr[index] + 2;
+  for(let i = 0; i <= (b - a); i += 1) {
+    arr[i] = a + i;
   }
   
-  return arr[n - 1];
+  return arr;
 }
+
+
+/* Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA. */
+
+function DNAtoRNA(dna) {
+  let arrDna = dna.split('');
+  
+  let rna = arrDna.map(item => item == 'T'? 'U' : item);  
+  return rna.join('');
+}
+
