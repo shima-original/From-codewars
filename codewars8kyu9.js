@@ -25,3 +25,34 @@ function howManyDalmatians(number){
   
   return respond;
 }
+
+//Given an array of integers your solution should find the smallest integer. 
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    args.sort((a,b) => a - b);
+    return args[0];
+  }
+}
+
+//You will be given an array a and a value x. All you need to do is check whether the provided array contains the value.
+function check(a, x) {
+  return a.includes(x);
+}
+
+
+/* You must correct the broken function to make sure that the second argument (tail), 
+is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+If the tail is right return true, else return false. */
+function correctTail(bod, tail) {
+  
+  let sub = bod.substring(bod.length-(tail.length));
+  
+  if (sub == tail) {
+    return true;
+  }
+  else {
+    return false;
+  }
+ } 
+
+
