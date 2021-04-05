@@ -23,4 +23,11 @@ function repeater(string, n){
   return arr.join('');
 }
 
-/*  */
+/* Create a function hat takes an integer argument of seconds and converts the value into a string describing how many hours and minutes comprise that many seconds.
+Any remaining seconds left over are ignored. */
+function toTime(seconds) {
+ let minutes = Math.trunc(seconds / 60);
+ let hours = Math.trunc(minutes / 60);
+ let minutesResult = minutes % 60;
+ return `${hours} hour(s) and ${minutesResult} minute(s)`;
+}
