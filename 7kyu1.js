@@ -44,19 +44,18 @@ John wants to know how many times he must go to the cinema so that the final res
 The function movie has 3 parameters: card (price of the card), ticket (normal price of a ticket), perc (fraction of what he paid for the previous ticket) 
 and returns the first n such that
 ceil(price of System B) < price of System A. */
-
 function movie(card, ticket, perc) {
-    let n = 1;
+    let n = 0;
     let sysA = ticket*n;
     let ticketNew = ticket*perc;
     let sysB = card + ticketNew;
   
     while (sysA < sysB) {
-      n += 1;
       ticketNew *= perc;
       sysB += ticketNew;
       sysA += ticket;
-    }  
+      n += 1;
+    }
     return n;
 };
 
