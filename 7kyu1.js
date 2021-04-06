@@ -55,6 +55,7 @@ function movie(card, ticket, perc) {
       n += 1;
       ticketNew *= perc;
       sysB += ticketNew;
+      sysA += ticket;
     }  
     return n;
 };
