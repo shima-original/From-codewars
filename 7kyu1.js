@@ -32,30 +32,23 @@ function toTime(seconds) {
  return `${hours} hour(s) and ${minutesResult} minute(s)`;
 }
 
-/*My friend John likes to go to the cinema. He can choose between system A and system B.
-System A : he buys a ticket (15 dollars) every time
-System B : he buys a card (500 dollars) and a first ticket for 0.90 times the ticket price, 
-then for each additional ticket he pays 0.90 times the price paid for the previous ticket.
-Example:
-If John goes to the cinema 3 times:
-System A : 15 * 3 = 45
-System B : 500 + 15 * 0.90 + (15 * 0.90) * 0.90 + (15 * 0.90 * 0.90) * 0.90 ( = 536.5849999999999, no rounding for each ticket)
-John wants to know how many times he must go to the cinema so that the final result of System B, when rounded up to the next dollar, will be cheaper than System A.
-The function movie has 3 parameters: card (price of the card), ticket (normal price of a ticket), perc (fraction of what he paid for the previous ticket) 
-and returns the first n such that
-ceil(price of System B) < price of System A. */
-function movie(card, ticket, perc) {
-    let n = 0;
-    let sysA = ticket*n;
-    let ticketNew = ticket*perc;
-    let sysB = card + ticketNew;
+/* You have a list of integers. The task is to return the maximum sum of the elements located between two negative elements, 
+or -1, Nothing, or a similar empty value, if there is no such sum. No negative element should be present in this sum. */
+function maxSumBetweenTwoNegatives(a) {
+  let sum = 0;
+  let maxSum = 0;
   
-    while (sysA < sysB) {
-      ticketNew *= perc;
-      sysB += ticketNew;
-      sysA += ticket;
-      n += 1;
+  for(let i = 0; i < a.length; i += 1) {
+    for(let j = (i + 1); j < a.length; j += 1) {
+      if(i < 0 && j < 0) {
+        let array = a.slice(i, j);
+        sum = array.reduce((sum, elem) => sum + elem);
+        
+        if(sum > maxSum) {
+          maxSum = sum;
+        }
+      }
     }
-    return n;
-};
-
+  }
+  return maxSum;
+}
