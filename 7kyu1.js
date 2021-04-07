@@ -35,20 +35,21 @@ function toTime(seconds) {
 /* You have a list of integers. The task is to return the maximum sum of the elements located between two negative elements, 
 or -1, Nothing, or a similar empty value, if there is no such sum. No negative element should be present in this sum. */
 function maxSumBetweenTwoNegatives(a) {
-  let sum = 0;
-  let maxSum = 0;
+  const sums = [-1];
+  let inNegativeRange = false;
+  let currentSum = 0;
   
-  for(let i = 0; i < a.length; i += 1) {
-    for(let j = (i + 1); j < a.length; j += 1) {
-      if(i < 0 && j < 0) {
-        let array = a.slice(i, j);
-        sum = array.reduce((sum, elem) => sum + elem);
-        
-        if(sum > maxSum) {
-          maxSum = sum;
-        }
+  a.forEach((val) => {
+    if(val < 0) {
+      if(inNegativeRange) {
+        sums.push(currentSum);
+        currentSum = 0;
+      } else {
+        inNegativeRange = true;
       }
+    } else if (inNegativeRange) {
+      currentSum += val;
     }
-  }
-  return maxSum;
+  })
+  return Math.max(...sums);
 }
