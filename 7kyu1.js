@@ -53,3 +53,24 @@ function maxSumBetweenTwoNegatives(a) {
   })
   return Math.max(...sums);
 }
+
+/* In this kata, you will be given an array. Each value represents a meeting room. Your job? Find the first empty one and return its index 
+(N.B. There may be more than one empty room in some test cases).
+'X' --> busy 'O' --> empty
+If all rooms are busy, return 'None available!'. */
+function meeting(x){
+  let arr = [];
+  let result = 0;
+  
+  for(let i = 0; i < x.length; i += 1) {
+    if(x[i] == "O") {
+      arr.push(i);
+      result = arr[0];
+    } 
+  }
+  
+  if(arr.length == 0) {
+    result = 'None available!';
+  }
+  return result;
+}
