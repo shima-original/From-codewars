@@ -16,3 +16,15 @@ function disemvowel(str) {
                          && elem != 'E' && elem != 'I' && elem != 'O' && elem != 'U');
   return result.join('');
 }
+
+/* Remember the triangle of balls in billiards? To build a classic triangle (5 levels) you need 15 balls. With 3 balls you can build a 2-level triangle, etc.
+Write a function that takes number of balls (≥ 1) and calculates how many levels you can build a triangle.*/
+function pyramid(balls) {
+  let x = 0;
+  let n = 0;
+  while( n < balls) {
+    x += 1;
+    n += (x + 1);
+  }
+  return x;
+}
