@@ -28,3 +28,15 @@ function pyramid(balls) {
   }
   return x;
 }
+
+//Given a non-negative integer, return an array / a list of the individual digits in order.
+function digitize(n) {
+  let arr = n.toString().split('');
+  let result = arr.map(Number);
+  return result;
+}
+
+//Given the start and end letterbox numbers, write a method to return the frequency of all 10 digits painted.
+
+
+
