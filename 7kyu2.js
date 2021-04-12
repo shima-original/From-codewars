@@ -36,7 +36,27 @@ function digitize(n) {
   return result;
 }
 
-//Given the start and end letterbox numbers, write a method to return the frequency of all 10 digits painted.
+/* Traffic light. Complete the function that takes a string as an argument representing the current state of the light 
+and returns a string representing the state the light should change to. */
+function updateLight(current) {
+  
+  let result;
+  
+  switch(current) {
+      case 'green':
+        result = 'yellow';
+        break;
+      case 'yellow':
+        result = 'red';
+        break;
+      case 'red':
+        result = 'green';
+        break;
+  }
+  return result;
+}
+
+
 
 
 
