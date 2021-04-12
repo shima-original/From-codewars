@@ -57,6 +57,20 @@ function updateLight(current) {
 }
 
 
+/* Create a function called addArrays() that combines two arrays of equal length, summing each element of the first with the corresponding element in the second,
+returning the "combined" summed array.*/
+function addArrays(array1, array2) {
+  let result = [];
+  
+  if(array1.length != array2.length) return error;
+  
+  for(let i = 0; i < array1.length; i += 1) {
+    result.push(array1[i] + array2[i]);
+  }
+  
+  return result;
+}
+
 
 
 
