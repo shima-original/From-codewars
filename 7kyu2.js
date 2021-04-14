@@ -88,5 +88,18 @@ function catMouse(x){
   return result;
 }
 
+/* An isogram is a word that has no repeating letters, consecutive or non-consecutive. 
+Implement a function that determines whether a string that contains only letters is an isogram. 
+Assume the empty string is an isogram. Ignore letter case.*/
+function isIsogram(str){
+  let result = [];
+  let arr = str.toLowerCase().split('');
+  for(let i = 0; i < arr.length; i += 1) {
+    if(!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  return arr.length == result.length;
+}
 
 
