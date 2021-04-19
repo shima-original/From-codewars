@@ -16,3 +16,22 @@ Four parameters will be given:
     fert (integer) - each unit of fertilizer increases the amount of flowers, grouped in clusters
     temp (integer) - if the temperature given is in the range of 20°C and 30°C, the plant grows normally, otherwise, all the flowers die except for one flower at the end of the stem.
 Given the above parameters, your task is to return a string representing the plant. */
+function plant(seed, water, fert, temp){
+ let arr = new Array(water);
+ let stem = '-';
+  
+  for(let i = 0; i < water; i += 1){
+    arr.push(stem.repeat(water));
+    arr.push(seed.repeat(fert));
+  }
+  let result = arr.join('').split('');
+  
+  if(temp < 20 || temp > 30){
+    for(let j = 0; j < result.length; j += 1){
+      if(result[j] == seed){
+        result.splice(j, 1);
+      }
+    }
+  }  
+  return result.join('');
+}
