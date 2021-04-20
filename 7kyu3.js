@@ -28,5 +28,6 @@ function validSpacing(s) {
     result = ((arr[i] == ' ') && (arr[i + 1] == ' ')) ||
        ((arr[i] == ' ') && (arr[i - 1] == ' ')) || (arr[0] == ' ') 
        || (arr[arr.length - 1] == ' ') ? false : true;
+    if(result == false) break;
     } return result;
  }
