@@ -17,3 +17,16 @@ function smallEnough(a, limit){
   });
   return result;
 }
+
+/*Your task is to write a function which checks if a string has valid spacing. The function should return either True or False.
+For this kata, the definition of valid spacing is one space between words, and no leading or trailing spaces. */
+function validSpacing(s) {
+  let arr = s.split('');
+  let result = true;
+
+  for(let i = 0; i < arr.length; i += 1){
+    result = ((arr[i] == ' ') && (arr[i + 1] == ' ')) ||
+       ((arr[i] == ' ') && (arr[i - 1] == ' ')) || (arr[0] == ' ') 
+       || (arr[arr.length - 1] == ' ') ? false : true;
+    } return result;
+ }
