@@ -43,3 +43,16 @@ function countDevelopers(list) {
   } return counter;
 }
 
+
+/*Given a sequence of integers, return the sum of all the integers that have an even index, multiplied by the integer at the last index.
+If the sequence is empty, you should return 0. */
+function evenLast(numbers) {
+  let result = 0;
+  for(let i = 0; i < numbers.length; i += 1) {
+    if(i % 2 == 0) {
+      result += Number(numbers[i]);
+    } 
+  } 
+  return result * Number(numbers[numbers.length - 1]);
+}
+
