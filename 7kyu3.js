@@ -48,6 +48,12 @@ function countDevelopers(list) {
 If the sequence is empty, you should return 0. */
 function evenLast(numbers) {
   let result = 0;
+  
+  let bool = numbers.map(elem => Number.isInteger(elem));
+  if(bool == false) {
+    return 0;
+  }
+  
   for(let i = 0; i < numbers.length; i += 1) {
     if(i % 2 == 0) {
       result += Number(numbers[i]);
