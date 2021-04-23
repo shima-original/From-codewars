@@ -6,3 +6,15 @@ Order is same as in the description(James works on mondays,John works on tuesday
 Let cost of all liquid be x
 Your function should return string like this : 'It is (weekday) today, (name), you have to work, 
 you must spray (number) trees and you need (x) dollars to buy liquid' */
+function task(w, n, c) {
+  let worker = {
+    Monday: 'James',
+    Tuesday: 'John',
+    Wednesday: 'Robert',
+    Thursday: 'Michael',
+    Friday: 'William'
+  };
+  let man = worker[`${w}`];
+  let x = n*c;
+  return `It is ${w} today, ${man}, you have to work, you must spray ${n} trees and you need ${x} dollars to buy liquid`;
+}
