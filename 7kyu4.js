@@ -18,3 +18,12 @@ function task(w, n, c) {
   let x = n*c;
   return `It is ${w} today, ${man}, you have to work, you must spray ${n} trees and you need ${x} dollars to buy liquid`;
 }
+
+//Yor task is to write function factorial
+function factorial(n){
+  let counter = 1;
+  let arr = new Array(n);
+  for(let i = n; i > 0; i -= 1) {
+    counter *= i;
+  } return counter;
+}
