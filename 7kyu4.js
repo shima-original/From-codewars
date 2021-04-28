@@ -42,3 +42,8 @@ function getCount(str) {
   }
   return vowelsCount;
 }
+
+// Write a function which maps a function over the lists in a list. 
+function gridMap(fn,a) {
+ return a.map(elem => elem.map(fn));
+}
