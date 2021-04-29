@@ -47,3 +47,18 @@ function getCount(str) {
 function gridMap(fn,a) {
  return a.map(elem => elem.map(fn));
 }
+
+//We want to know the index of the vowels in a given word, for example, there are two vowels in the word super (the second and fourth letters). 
+function vowelIndices(word){
+  let arrWord = word.split('');
+  let result = [];
+  let vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y'];
+  for(let i = 0; i < arrWord.length; i += 1){
+    for(let j = 0; j < vowels.length; j += 1){
+      if(arrWord[i] == vowels[j]){
+        result.push(i+1);
+      }
+    }
+  } return result;
+}
+
