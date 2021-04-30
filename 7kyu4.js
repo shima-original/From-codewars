@@ -62,3 +62,20 @@ function vowelIndices(word){
   } return result;
 }
 
+/*Let's call a string cool if it is formed only by Latin letters and no two lowercase and no two uppercase letters are in adjacent positions. 
+Given a string, check if it is cool.*/
+function coolString(s) {
+  let arr = s.split('');
+  let up = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+           'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let low = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  for(let i = 0; i < arr.length; i += 1){
+    if (up.includes(arr[i]) && up.includes(arr[i + 1]) || low.includes(arr[i]) && low.includes(arr[i + 1])){
+      return false;
+    }
+    else if((!up.includes(arr[i])) && (!low.includes(arr[i]))) {
+      return false;
+    }
+  } return true;
+}
