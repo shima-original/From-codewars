@@ -16,3 +16,8 @@ function shorter_reverse_longer(a,b){
   }
   return result.join('');
 }
+
+//return a binary sum as a string 
+function addBinary(a,b) {
+  return (a + b).toString(2);
+}
