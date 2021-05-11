@@ -21,3 +21,32 @@ function shorter_reverse_longer(a,b){
 function addBinary(a,b) {
   return (a + b).toString(2);
 }
+
+/*Consider the word "abode". We can see that the letter a is in position 1 and b is in position 2. In the alphabet, a and b are also in positions 1 and 2. 
+Notice also that d and e in abode occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example, */
+function solve(arr){  
+  let result = [];
+  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  arr.forEach(function(elem){
+    let counter = 0;
+    let word = elem.toLowerCase().split('');
+    for(let i = 0; i < word.length; i += 1){
+      if(word[i] === alphabet[i]){
+        counter += 1;
+      }
+    }
+    result.push(counter);
+    counter = 0;
+  });
+  return result;
+};
+
+/*Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighbouring numbers is equal (note that 0 and n - 1 are neighbouring, too). 
+Given n and firstNumber/first_number, find the number which is written in the radially opposite position to firstNumber.*/
+function circleOfNumbers(n, firstNumber) {
+  if(firstNumber < n/2)return n/2 + firstNumber;
+  else return -(n/2 - firstNumber);  
+}
+
+
