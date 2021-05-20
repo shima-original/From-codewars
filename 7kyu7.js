@@ -29,3 +29,20 @@ function getDivisorsCnt(n){
       if(n % i == 0) counter += 1;
     } return counter;
 }
+
+/*To complete this Kata you need to make a function multiplyAll/multiply_all which takes an array of integers as an argument. 
+This function must return another function, which takes a single integer as an argument and returns a new array.
+The returned array should consist of each of the elements from the first array multiplied by the integer.  */
+function multiplyAll(arr){
+  return function multiplyNumber(n){
+    return arr.map((elem) => elem*n);
+  }
+}
+
+//Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+function adjacentElementsProduct(array) {
+  let result = array[0] * array[1];
+  for(let i = 1; i < array.length; i += 1){
+      if(array[i] * array[i + 1] > result) result = array[i] * array[i + 1];
+  } return result;
+}
