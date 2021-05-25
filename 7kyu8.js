@@ -21,3 +21,10 @@ function accum(s) {
   } 
   return result.join('');
 }
+
+/*Create a function that takes one positive three digit integer and rearranges its digits to get the maximum possible number. 
+Assume that the argument is an integer. Return null if the argument is not valid.*/
+var maxRedigit = function(num) {
+  return result = (num > 99 && num < 1000) ? parseInt(num.toString().split('').sort((a, b) => b - a).join('')) : null;
+};
+
