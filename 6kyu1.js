@@ -1,3 +1,3 @@
-/*  Two integer numbers are added using the column addition method. When using this method, some additions of digits produce non-zero carries to the next positions.
-Your task is to calculate the number of non-zero carries that will occur while adding the given numbers.
-The numbers are added in base 10.*/
+// Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2
+
+
