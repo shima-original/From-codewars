@@ -4,17 +4,5 @@ The task is to find, or not, the "cubic" numbers in the string and then to make 
  if "cubic" numbers number1, number2, ... were found.
 The numbers in the output are to be in the order in which they are encountered in the input string.
 If no cubic numbers are found return the string: `"Unlucky"``. */
-function isSumOfCubes(s){
-  let sum = 0;
-  let result = [];
-  let matches = s.match(/\d{1,3}/);
-  for(let i = 0; i < matches.length; i += 1){
-    sum += matches[i] ** 3;
-    if(sum === matches[i]) result.push(matches[i]);
-  }
-  if(result.length === 0) result.push("Unlucky");
-  else {
-    result.push("Lucky");
-  } return result.join(" ");
-}
+
 
