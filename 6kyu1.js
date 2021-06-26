@@ -40,4 +40,18 @@ function restaurant(a,b,t){
   } return result;
 }
 
+/*In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+If anything in the text isn't a letter, ignore it and don't return it. */
+function alphabetPosition(text) {
+  let alphabet = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+                 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let arr = text.toLowerCase().split('');
+  let result = [];
+  
+  for(let i = 0; i < arr.length; i += 1){
+    for(let j = 0; j < alphabet.length; j += 1){
+      if(arr[i] === alphabet[j]) result.push(j + 1);
+    }
+  } return result.join(' ');
+}
 
