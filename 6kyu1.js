@@ -55,3 +55,20 @@ function alphabetPosition(text) {
   } return result.join(' ');
 }
 
+/*Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. 
+IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.*/
+function isValidIP(str) {
+  let result = false
+  let array = str.split('.');
+  
+  if(array.length == 4){
+    for(let i = 0; i < array.length; i += 1){
+      if (array[i] >= 0 && array[i] <= 255) {
+        result = true;
+      }
+      else {
+        return false;
+      }
+    }
+  } return result;
+}
