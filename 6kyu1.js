@@ -57,24 +57,19 @@ function alphabetPosition(text) {
 
 /*Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. 
 IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.*/
+
 function isValidIP(str) {
-  let result = false
-  let array = str.split('.');
-  let newStr = array.join('');
-  let regexp = /\D/g;
-  if(newStr.match(regexp) != null) return false;
+  let regexp = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/;
+    let result = str.match(regexp) === null ? false : true;
   
-  else if(str.match(/0\d./) != null) return false;
-  
-  if(array.length == 4){
-    for(let i = 0; i < array.length; i += 1){
-      if (array[i] >= 0 && array[i] <= 255) {
-        result = true;
-      }
-      else {
-        return false;
-      }
-    }
-  } 
-  return result;
+    let numbers = str.match(/\d{1,}/g);
+  if(numbers != null){
+    for(let i = 0; i < numbers.length; i += 1){
+      if(numbers[i].match(/^0\d{1,2}/) != null) return false;
+      else if(numbers[i].match(/^[3-9]\d{2}/) != null) return false; 
+      else if(numbers[i].match(/^2[6-9]\d/) != null) return false; 
+      else if(numbers[i].match(/^25[6-9]/) != null) return false; 
+    } 
+  }
+    return result;
 }
