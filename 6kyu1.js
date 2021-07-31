@@ -60,6 +60,11 @@ IPs should be considered valid if they consist of four octets, with values betwe
 function isValidIP(str) {
   let result = false
   let array = str.split('.');
+  let newStr = array.join('');
+  let regexp = /\D/g;
+  if(newStr.match(regexp) != null) return false;
+  
+  else if(str.match(/0\d./) != null) return false;
   
   if(array.length == 4){
     for(let i = 0; i < array.length; i += 1){
@@ -70,5 +75,6 @@ function isValidIP(str) {
         return false;
       }
     }
-  } return result;
+  } 
+  return result;
 }
