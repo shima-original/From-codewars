@@ -57,7 +57,6 @@ function alphabetPosition(text) {
 
 /*Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. 
 IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.*/
-
 function isValidIP(str) {
   let regexp = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/;
     let result = str.match(regexp) === null ? false : true;
@@ -84,5 +83,18 @@ including the following:
 "DELETE x": Delete Ax
 "MIN x y": Query the minimum value in subsequence [Ax,..., Ay]
 The query operation "MIN x y" is always the last operation. Each contestant should answer the correct number at this time.*/
-
+function superBrain(sequence,operations){
+   function add(sequence, x, y, n){
+     for(let i = x; i <= y; i += 1){
+       sequence[i] += 1;
+     } return sequence;
+   }
+  function reversePart(sequence, x, y){
+    let arr = sequence.slice();
+    let part = arr.slice(x, y);
+    let partRev = part.reverse();
+    return sequence.splice(x, (y - x), partRev);
+  }
+   
+}
 
