@@ -95,6 +95,21 @@ function superBrain(sequence,operations){
     let partRev = part.reverse();
     return sequence.splice(x, (y - x), partRev);
   }
-   
+  function revolve(sequence, x, y, n){
+    let arr = sequence.slice();
+    let part = arr.slice(x, y).shift(x).push(x);
+    return sequence.splice(x, (y - x), part);
+  }
+  function insertN(sequence, x, n){
+    return sequence.splice(x, 0, n);
+  }
+  function delElem(sequence, x){
+    return sequence.splice((x - 1), 1);
+  }
+  function minOf(sequence, x, y){
+    let arr = sequence.slice(x, y);
+    arr.sort(function(a, b) { return a - b});
+    return arr[0];
+  }
 }
 
