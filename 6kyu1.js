@@ -74,6 +74,15 @@ function isValidIP(str) {
     return result;
 }
 
-
+/* Your friend Jackson was invited to a TV program called "Super Brain". In this program, contestant need to play a memory game. 
+At the beginning, the moderator tells all contestants a sequence of numbers [A1, A2, ..., An]. Next, the moderator will do some operations on the sequence, 
+including the following:
+ "ADD x y n": All elements in the subsequence [Ax,..., Ay] increase by n. 
+"REVERSE x y"：The subsequence [Ax,...,Ay] are arranged in reverse order.
+"REVOLVE x y n": Shift the subsequence [Ax,...,Ay] to the left n times.
+"INSERT x n": Insert n before Ax
+"DELETE x": Delete Ax
+"MIN x y": Query the minimum value in subsequence [Ax,..., Ay]
+The query operation "MIN x y" is always the last operation. Each contestant should answer the correct number at this time.*/
 
 
