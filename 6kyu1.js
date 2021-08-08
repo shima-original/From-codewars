@@ -96,9 +96,11 @@ function superBrain(sequence,operations){
     return sequence.splice(x, (y - x + 1), partRev);
   }
   function revolve(sequence, x, y, n){
-    let arr = sequence.slice();
-    let part = arr.slice(x, y).shift(x).push(x);
-    return sequence.splice(x, (y - x), part);
+    let part = sequence.slice(x, (y + 1));
+    for(let i = 0; i < n; i += 1){
+      let elem = part.splice(-1, 1);
+      part.push(elem);
+    } return sequence.splice(x, (y - x + 1), part);
   }
   function insertN(sequence, x, n){
     return sequence.splice(x, 0, n);
@@ -115,22 +117,22 @@ function superBrain(sequence,operations){
   for(let i = 0; i < operations.length; i += 1){
     let action = operations[i].split(' ');
     if (action[0] == 'ADD'){
-     sequence = add(sequence, operations[1], operations[2], operations[3]);
+     sequence = add(sequence, action[1], action[2], action[3]);
     }
     else if(action[0] == 'REVERSE'){
-      sequence = reversePart(sequence, operations[1], operations[2]);
+      sequence = reversePart(sequence, action[1], action[2]);
     }
     else if(action[0] == 'REVOLVE'){
-      sequence = revolve(sequence, operations[1], operations[2], operations[3]);
+      sequence = revolve(sequence, action[1], action[2], action[3]);
     }
     else if(action[0] == 'INSERT'){
-      sequence = insertN(sequence, operations[1], operations[2]);
+      sequence = insertN(sequence, action[1], action[2]);
     }
     else if(action[0] == 'DELETE'){
-      sequence = delElem(sequence, operations[1]);
+      sequence = delElem(sequence, action[1]);
     }
     else{
-      sequence = minOf(sequence, operations[1], operations[2]);
+      sequence = minOf(sequence, action[1], action[2]);
     }
   } return sequence;
 }
