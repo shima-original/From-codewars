@@ -111,5 +111,27 @@ function superBrain(sequence,operations){
     arr.sort(function(a, b) { return a - b});
     return arr[0];
   }
+  
+  for(let i = 0; i < operations.length; i += 1){
+    let action = operations[i].split(' ');
+    if (action[0] == 'ADD'){
+     sequence = add(sequence, operations[1], operations[2], operations[3]);
+    }
+    else if(action[0] == 'REVERSE'){
+      sequence = reversePart(sequence, operations[1], operations[2]);
+    }
+    else if(action[0] == 'REVOLVE'){
+      sequence = revolve(sequence, operations[1], operations[2], operations[3]);
+    }
+    else if(action[0] == 'INSERT'){
+      sequence = insertN(sequence, operations[1], operations[2]);
+    }
+    else if(action[0] == 'DELETE'){
+      sequence = delElem(sequence, operations[1]);
+    }
+    else{
+      sequence = minOf(sequence, operations[1], operations[2]);
+    }
+  } return sequence;
 }
 
