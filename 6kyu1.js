@@ -91,9 +91,9 @@ function superBrain(sequence,operations){
    }
   function reversePart(sequence, x, y){
     let arr = sequence.slice();
-    let part = arr.slice(x, y);
+    let part = arr.slice(x, (y + 1));
     let partRev = part.reverse();
-    return sequence.splice(x, (y - x), partRev);
+    return sequence.splice(x, (y - x + 1), partRev);
   }
   function revolve(sequence, x, y, n){
     let arr = sequence.slice();
@@ -134,4 +134,3 @@ function superBrain(sequence,operations){
     }
   } return sequence;
 }
-
