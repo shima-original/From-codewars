@@ -86,14 +86,14 @@ The query operation "MIN x y" is always the last operation. Each contestant shou
 function superBrain(sequence,operations){
    function add(sequence, x, y, n){
      for(let i = x; i <= y; i += 1){
-       sequence[i] += 1;
+       sequence[i] += n;
      } return sequence;
    }
   function reversePart(sequence, x, y){
-    let arr = sequence.slice();
-    let part = arr.slice(x, (y + 1));
-    let partRev = part.reverse();
-    return sequence.splice(x, (y - x + 1), partRev);
+    const t = sequence[x - 1];
+    sequence[x - 1] = sequence[y - 1];
+    sequence[y - 1] = t;
+    return sequence;
   }
   function revolve(sequence, x, y, n){
     let part = sequence.slice(x, (y + 1));
