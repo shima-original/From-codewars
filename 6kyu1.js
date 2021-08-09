@@ -85,7 +85,7 @@ including the following:
 The query operation "MIN x y" is always the last operation. Each contestant should answer the correct number at this time.*/
 function superBrain(sequence,operations){
    function add(sequence, x, y, n){
-     for(let i = x; i <= y; i += 1){
+     for(let i = (x - 1); i < y; i += 1){
        sequence[i] += n;
      } return sequence;
    }
