@@ -83,6 +83,7 @@ including the following:
 "DELETE x": Delete Ax
 "MIN x y": Query the minimum value in subsequence [Ax,..., Ay]
 The query operation "MIN x y" is always the last operation. Each contestant should answer the correct number at this time.*/
+
 function superBrain(sequence,operations){
    function add(sequence, x, y, n){
      for(let i = (x - 1); i < y; i += 1){
@@ -96,39 +97,38 @@ function superBrain(sequence,operations){
     return sequence;
   }
   function revolve(sequence, x, y, n){
-    let part = sequence.slice(x, (y + 1));
     for(let i = 0; i < n; i += 1){
-      let elem = part.splice(-1, 1);
-      part.push(elem);
-    } return sequence.splice(x, (y - x + 1), part);
+      let removed = sequence.splice((x - 1), 1);
+      sequence.splice((y - 1), 0, removed);
+    } return sequence;
   }
   function insertN(sequence, x, n){
-    return sequence.splice(x, 0, n);
+    return sequence.splice((x - 1), 0, n);
   }
   function delElem(sequence, x){
     return sequence.splice((x - 1), 1);
   }
   function minOf(sequence, x, y){
-    let arr = sequence.slice(x, y);
+    let arr = sequence.slice((x - 1), y);
     arr.sort(function(a, b) { return a - b});
     return arr[0];
   }
   
   for(let i = 0; i < operations.length; i += 1){
     let action = operations[i].split(' ');
-    if (action[0] == 'ADD'){
+    if (action[0] === 'ADD'){
      sequence = add(sequence, action[1], action[2], action[3]);
     }
-    else if(action[0] == 'REVERSE'){
+    else if(action[0] === 'REVERSE'){
       sequence = reversePart(sequence, action[1], action[2]);
     }
-    else if(action[0] == 'REVOLVE'){
+    else if(action[0] === 'REVOLVE'){
       sequence = revolve(sequence, action[1], action[2], action[3]);
     }
-    else if(action[0] == 'INSERT'){
+    else if(action[0] === 'INSERT'){
       sequence = insertN(sequence, action[1], action[2]);
     }
-    else if(action[0] == 'DELETE'){
+    else if(action[0] === 'DELETE'){
       sequence = delElem(sequence, action[1]);
     }
     else{
