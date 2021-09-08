@@ -73,3 +73,16 @@ function isValidIP(str) {
     return result;
 }
 
+/*Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p
+We want to find a positive integer k, if it exists, such as the sum of the digits of n taken to the successive powers of p is equal to k * n. */
+function digPow(n, p){
+  let result = 0;
+  let numbers = n.toString().split("").map(int=>parseInt(int, 10));
+  
+  for(let i = 0; i < numbers.length; i += 1){
+    result += Math.pow(numbers[i], p + i);
+  }
+  return result % n == 0 ? result/n : -1;
+}
+
+
