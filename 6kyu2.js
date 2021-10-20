@@ -21,7 +21,7 @@ function digital_root(n) {
 
 //Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd" Your task is to process a string with "#" symbols.
 function cleanString(s) {
-  let regexp = /\w#/gm;
+  let regexp = /\w#/g;
   s = s.replace(regexp, '');
   if(regexp.test(s)) cleanString(s);
   else{
