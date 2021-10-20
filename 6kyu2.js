@@ -29,4 +29,13 @@ function cleanString(s) {
   return arr.join('');
 }
 //2
-return s.replace(/\w#/gm, '');
+  let regexp = /\w#/gm;
+  s.replace(regexp, '');
+  if(regexp.test(s)) cleanString(s);
+  else{
+    let regexp2 = /#/gm;
+    if(regexp2.test(s)) return s.replace(regexp2, '');
+    else{
+      return s;
+    }
+  } 
