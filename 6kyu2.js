@@ -1,6 +1,7 @@
 
 /*Digital root is the recursive sum of all the digits in a number.Given n, take the sum of the digits of n. 
 If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.*/
+
 function digital_root(n) {
    
     if(n < 10) return n;
@@ -25,3 +26,28 @@ The city provides its citizens with a Walk Generating App on their phones -- eve
 representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and 
 you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly 
 ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.*/
+
+function isValidWalk(walk) {
+  
+  let ncount = 0;
+  let scount = 0;
+  let wcount = 0;
+  let ecount = 0;
+  
+  if(walk.length > 10 || walk.length < 3) return false;
+  
+  for(let i = 0; i < walk.length; i += 1){
+    if (walk[i] === 'n') ncount += 1;
+    else if (walk[i] === 's') scount += 1;
+    else if (walk[i] === 'w') wcount += 1;
+    else if (walk[i] === 'e') ecount += 1;
+    else{
+      return false;
+      }
+  }
+  
+  if((ncount === scount) && (wcount === ecount)) return true;
+  else{
+    return false;
+  }
+}
