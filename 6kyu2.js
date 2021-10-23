@@ -51,3 +51,29 @@ function isValidWalk(walk) {
     return false;
   }
 }
+
+/*Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities. 
+"Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+comp(a, b) returns true because in b 121 is the square of 11, 14641 is the square of 121, 20736 the square of 144, 361 the square of 19, 25921 the square of 161, 
+and so on. It gets obvious if we write b's elements in terms of squares.
+If, for example, we change the first number to something else, comp may not return true anymore.
+comp(a,b) returns false because in b 132 is not the square of any number of a.
+comp(a,b) returns false because in b 36100 is not the square of any number of a.
+Remarks
+    a or b might be [] or {} (all languages except R, Shell).
+    a or b might be nil or null or None or nothing.
+If a or b are nil (or null or None, depending on the language), the problem doesn't make sense so return false.*/
+function comp(array1, array2){
+  if(array1 === null || array2 === null) return false;
+  else if(array1.length != array2.length){
+    return false;
+  }
+  else{
+    let array1S = array1.sort((a,b) => a-b);
+    let array2S = array2.sort((a,b) => a-b);
+    for(let i = 0; i < array1S.length; i += 1){
+      if(array1[i]*array1[i] != array2[i]) return false;
+    }
+    return true;
+  }
+}
