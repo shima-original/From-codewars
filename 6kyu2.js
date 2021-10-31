@@ -88,24 +88,34 @@ Consonants are any letters of the alphabet except "aeiou".
 We shall assign the following values: a = 1, b = 2, c = 3, .... z = 26.*/
 function solve(s) {
   let arr = s.split('');
+  let count = 0;
 
   let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q','r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  
+  function countResult(array, alphabet){
+   for(let i = 0; i < array.length; i += 1){
+     for(let j = 0; j < alphabet.length; j += 1){
+       if(array[i] === alphabet[j]) array[i] = (j - 1);
+     }
+   }  
+    count = array.reduce(function(sum, elem){
+      return sum + elem;
+    }, 0);
+    return count;
+  }
   
   function countConsonants(arr){
       let current = [];
       let result = 0;
-      let count = 0;
+      
       for(let i = 0; i < arr.length; i += 1){
         if(arr[i] === 'a'|| arr[i] === 'e'|| arr[i] === 'i'|| arr[i] === 'o'|| arr[i] === 'u'){
+          countResult(current, alphabet);
           if(count > result) result = count;
           current = [];
         }else{
           current.push(arr[i]);
         }
       } return result;
-  }
-  
-  function countResult(){
-    
-  }
+  }  
 };
