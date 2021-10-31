@@ -95,7 +95,7 @@ function solve(s) {
   function countResult(array, alphabet){
    for(let i = 0; i < array.length; i += 1){
      for(let j = 0; j < alphabet.length; j += 1){
-       if(array[i] === alphabet[j]) array[i] = (j - 1);
+       if(array[i] === alphabet[j]) array[i] = (j + 1);
      }
    }  
     count = array.reduce(function(sum, elem){
@@ -117,5 +117,5 @@ function solve(s) {
           current.push(arr[i]);
         }
       } return result;
-  }  
+  } return countConsonants(arr);
 };
