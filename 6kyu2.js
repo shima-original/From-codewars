@@ -116,6 +116,11 @@ function solve(s) {
         }else{
           current.push(arr[i]);
         }
+        
+        if( i === (arr.length - 1)){
+          countResult(current, alphabet);
+          if(count > result) result = count;
+        }
       } return result;
   } return countConsonants(arr);
 };
