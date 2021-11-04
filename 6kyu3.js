@@ -18,27 +18,11 @@ The input string consists of lowercase latin letters. Your function should retur
 
 function f(s) {
   
-  let substr = [];
-  let dividers = [];
-  let counter = 1; 
-  let array = s.split('');
-  let n = Math.sqrt(array.length);
-  
-  for(let j = 2; j < n; j += 1){
-    if(n % j === 0) dividers.push(j);  
+  for(let i = 1; i <= s.length; i += 1){
+   
+    let result = s.split(s.substring(0, i));
+       
+    if(result.join('') === '') return [s.substring(0, i), s.length/i];  
   }
   
-  for(let index = 0; index < dividers.length; index += 1){
-      for( let i = 0; i < array.length; i += index){
-        if(array[i] === substr[0]){
-          if(array[i + (substr.length - 1)] === substr[substr.length - 1]){
-            counter += 1;
-          }
-        }else{
-        substr.push(array[i]);
-        }
-    }
-  }
-  
-  return [substr, counter];
 }
