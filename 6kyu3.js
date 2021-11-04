@@ -4,13 +4,13 @@
 function spinWords(str){
   let array = str.split(' ');
   
-  function reverseWord(elem){
+  let words = array.map(function(elem){
     let symbols = elem.split('');
     let result = symbols.length > 4 ? symbols.reverse() : symbols;
     return result.join('');
-  }
-  
-  let words = array.map(reverseWord);
+  });  
   
   return words.join(' ');
 } 
+  
+  
