@@ -13,4 +13,32 @@ function spinWords(str){
   return words.join(' ');
 } 
   
+/*For a given nonempty string s find a minimum substring t and the maximum number k, such that the entire string s is equal to t repeated k times. 
+The input string consists of lowercase latin letters. Your function should return a tuple (in Python) (t, k) or an array (in Ruby and JavaScript) [t, k] */
+
+function f(s) {
   
+  let substr = [];
+  let dividers = [];
+  let counter = 1; 
+  let array = s.split('');
+  let n = Math.sqrt(array.length);
+  
+  for(let j = 2; j < n; j += 1){
+    if(n % j === 0) dividers.push(j);  
+  }
+  
+  for(let index = 0; index < dividers.length; index += 1){
+      for( let i = 0; i < array.length; i += index){
+        if(array[i] === substr[0]){
+          if(array[i + (substr.length - 1)] === substr[substr.length - 1]){
+            counter += 1;
+          }
+        }else{
+        substr.push(array[i]);
+        }
+    }
+  }
+  
+  return [substr, counter];
+}
