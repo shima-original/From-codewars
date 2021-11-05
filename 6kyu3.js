@@ -59,3 +59,19 @@ function insertAtIndexes(phrase,word,indexes){
   } 
   return array.join('');
 }
+
+//Define a function that takes one integer argument and returns logical value true or false depending on if the integer is a prime.
+
+function isPrime(num) {
+  if(num < 2) return false;
+  else if(num === 2) return true;
+  else if (num % 2 === 0) return false;
+  else{
+      for(let i = 3; i <= Math.sqrt(num); i += 2){
+         if(num % i === 0) return false;
+      } return true;
+  }
+}
+
+
+
