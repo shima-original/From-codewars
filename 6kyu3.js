@@ -45,3 +45,17 @@ function duplicateEncode(word){
     }
   } return array.join('');
 }
+
+/*We at [SomeLargeCompany] have decided to expand on the functionality of our online text editor.
+We have written a new function that accepts a phrase, a word and an array of indexes. 
+We want this function to return the phrase, with the word inserted at each of the indexes given by the array.
+However, our current function only gets the first insertion right, but all of the following ones are out of place!
+Please fix this for us, and you will be showered with money.*/
+
+function insertAtIndexes(phrase,word,indexes){
+  let array = phrase.split('');
+  for(let i = 0; i < indexes.length; i += 1){
+    array.splice(indexes[i] + i, 0, word);
+  } 
+  return array.join('');
+}
