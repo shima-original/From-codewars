@@ -23,3 +23,8 @@ function persistence(num) {
   return count(num, counter);
 }
 
+/*Help Johnny by writing a function, that takes the amount of handshakes and returns the minimal amount of people needed to perform these handshakes 
+(a pair of farmers handshake only once).*/
+function getParticipants(handshakes){
+  return Math.ceil((1 + (1 + 8*handshakes)**(1/2))/2); 
+}
