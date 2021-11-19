@@ -28,3 +28,15 @@ function persistence(num) {
 function getParticipants(handshakes){
   return Math.ceil((1 + (1 + 8*handshakes)**(1/2))/2); 
 }
+
+//The goal is to come up with a function that can calculate inversions for any arbitrary array
+function countInversions( array ){
+  let counter = 0;
+  //let sorted = array.sort((a, b) => a - b);
+  for(let i = 0; i < array.length; i += 1){
+    for(let j = i + 1; j < array.length; j += 1){
+      if(array[i] > array[j]) counter += 1;
+    }
+  }
+  return counter;
+}
