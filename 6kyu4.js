@@ -54,18 +54,12 @@ The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
 The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above. */
 function partsSums(ls) {
     let result = [];
-    function nextSums(ls, result){  
-       if(ls === []) return result;
-       else{
-          let value = ls.reduce(function (sum, current){
-              sum + current;
-          }, [0]);
-         
-          ls.shift();
+    let value = ls.reduce(function(sum, current){
+        sum + current;
+    }, [0]);    
+    for(let i = 0; i < ls.length; i += 1){
           result.push(value);
-          nextSums(ls, result);
-       }      
-    } 
-    nextSums(ls, result);
+          value = value - ls[i];
+    }
     return result;
 }
