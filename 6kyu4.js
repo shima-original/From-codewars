@@ -55,9 +55,9 @@ The function parts_sums (or its variants in other languages) will take as parame
 function partsSums(ls) {
     let result = [];
     let value = ls.reduce(function(sum, current){
-        sum + current;
-    }, [0]);    
-    for(let i = 0; i < ls.length; i += 1){
+        return sum + current;
+    }, 0);  
+    for(let i = 0; i <= ls.length; i += 1){
           result.push(value);
           value = value - ls[i];
     }
