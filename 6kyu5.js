@@ -35,10 +35,12 @@ speeds: An array of integer. It contains four integer [a,b,c,d]
         c: The seconds required when the elevator close the door
         d: The seconds required when John walks to n-1 or n+1 floor
 Please help John to calculate the shortest time to go downstairs.*/
-function shorterestTime(n,m,speeds) {
-  let diff = n > m ? n - m : m - n;
-  let time1 = speeds[0] * diff + 2 * speeds[1] + speeds[2] + speeds[0] * n;
-  let time2 = speeds[3] * diff + 2 * speeds[1] + speeds[2] + speeds[0] * m;
-  let result = time1 > time2 ? time2 : time1;
-  return result;
+function shorterestTime(n,m,speeds) { 
+  if(n === 0) return 0;  
+  const[a, b, c, d] = speeds;
+  return Math.min(
+    n * d,
+    Math.abs(n - m) * d + 2 * b + c + m * a,
+    Math.abs(n - m) * a + 2 * b + c + n * a
+  );
 }
