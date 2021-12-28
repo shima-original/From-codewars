@@ -56,7 +56,7 @@ function numberOfPairs(gloves){
   }
     for(let i = 0; i < resultArr.length; i += 1){
          let lengthOfGloves = gloves.filter(item => item === gloves[i]).length;
-         if(lengthOfGloves % 2 === 0) counter += 1;
+         if(lengthOfGloves % 2 === 0) counter += lengthOfGloves/2;
     }
   return counter;
 }
