@@ -68,3 +68,23 @@ Find the spare chairs from the array of meeting rooms. Each meeting room tuple w
 Each occupant is represented by 'X'. The room tuple will also have an integer telling you how many chairs there are in the room.
 You should return an array of integers that shows how many chairs you take from each room in order, up until you have the required amount.
 If you need no chairs, return "Game On". If there aren't enough spare chairs available, return "Not enough!".*/
+function meeting(x, need){
+  let counter = 1;
+  let result = [];  
+  if(need === 0) return 'Game On'; 
+  else { 
+    for(let i = 0; i < x.length; i += 1){
+      let guests = x[i][0].split('').length;
+      let free = x[i][1] - guests;
+      if(free < 0) free = 0;
+      result.push(free);
+      counter += free; 
+      if (counter === need) return result;
+      else if(counter > need) {
+        result[result.length - 1] -= (counter - need - 1);
+        return result;
+      }
+    } 
+    if(counter < need) return 'Not enough!';
+   }
+}
