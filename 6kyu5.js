@@ -62,3 +62,9 @@ function numberOfPairs(gloves)
   });  
   return count
 }
+
+/*Your meeting room can take up to 8 chairs. need will tell you how many have been taken. You need to find that many.
+Find the spare chairs from the array of meeting rooms. Each meeting room tuple will have the number of occupants as a string. 
+Each occupant is represented by 'X'. The room tuple will also have an integer telling you how many chairs there are in the room.
+You should return an array of integers that shows how many chairs you take from each room in order, up until you have the required amount.
+If you need no chairs, return "Game On". If there aren't enough spare chairs available, return "Not enough!".*/
