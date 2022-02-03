@@ -97,7 +97,7 @@ function order(words){
   let array = words.split(' ');
     for(let i = 0; i < array.length; i += 1){
       let index = array[i].match(/\d/);
-      result.splice((index - 1), 0, array[i]);
+      result.splice((index - 1), 1, array[i]);
     }  
   return result.filter(elem => elem != '0').join(' ');
 }
