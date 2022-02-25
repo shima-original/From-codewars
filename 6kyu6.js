@@ -57,3 +57,33 @@ function withdraw(n) {
   }
 }
 
+/*To participate in a prize draw each one gives his/her firstname.
+Each letter of a firstname has a value which is its rank in the English alphabet. A and a have rank 1, B and b rank 2 and so on.
+The length of the firstname is added to the sum of these ranks hence a number som.
+An array of random weights is linked to the firstnames and each som is multiplied by its corresponding weight to get what they call a winning number.
+Now one can sort the firstnames in decreasing order of the winning numbers. 
+When two people have the same winning number sort them alphabetically by their firstnames.*/
+function rank(st, we, n) {
+  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let names = st.toLowerCase().split(',');
+  let result = {};
+  
+  if(st.length === 0){
+    return "No participants";
+  } else {
+      for(let i = 0; i < names.length; i += 1){
+        let symbols = names[i].split('');
+        for(let j = 0; j < symbols.length; j += 1){
+          for(let k = 0; k < alphabet.length; k += 1){
+            if(symbols[j] === alphabet[k]) symbols[j] = k + 1; 
+          }
+        }
+        let sum = symbols.reduce((all, cur) => all + cur, 0);
+        let som = sum + symbols.length;
+        let winningNumber = som * we[i];
+        result.push(winningNumber);
+      }
+   
+  }
+}
