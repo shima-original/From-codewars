@@ -29,6 +29,7 @@ function isLanguageDiverse(list) {
   }
 }
 
+
 /*A stream of data is received and needs to be reversed.
 Each segment is 8 bits long, meaning the order of these segments needs to be reversed
 The total number of bits will always be a multiple of 8.
@@ -58,4 +59,45 @@ function withdraw(n) {
 }
 
 
+/*The President's phone is broken. He is not very happy.
+The only letters still working are uppercase E, F, I, R, U, Y.
+An angry tweet is sent to the department responsible for presidential phone maintenance.
+Decipher the tweet by looking for words with known meanings.
+    FIRE = "You are fired!"
+    FURY = "I am furious."
+If no known words are found, or unexpected letters are encountered, then it must be a "Fake tweet."
+Notes:
+    The tweet reads left-to-right.
+    Any letters not spelling words FIRE or FURY are just ignored
+    If multiple of the same words are found in a row then plural rules apply*/
+
+var fireAndFury = function(tweet) {
+  
+  let result = tweet.match(/F[UI]R[EY]/g);
+  let decipher = []
+  
+  if(result === null) return 'Fake tweet.';
+  
+  for(let i = 0; i < result.length; i += 1){
+    
+    if(result[i] === 'FURY'){
+      if(result[i - 1] !== 'FURY') decipher.push('I am', 'furious.');
+      else if(result[i - 1] === 'FURY'){
+        decipher.splice(decipher.lastIndexOf('furious.'), 0, 'really');
+      }
+    }
+    
+    else if(result[i] === 'FIRE'){
+      if(result[i - 1] !== "FIRE") decipher.push('You', 'are fired!');
+      else if(result[i - 1] === 'FIRE'){
+        decipher.splice(decipher.lastIndexOf('are fired!'), 0, 'and you');
+      }
+    }
+    
+   else{
+     return 'Fake tweet.';
+   }
+    
+  } return decipher.join(' ');  
+}
 
