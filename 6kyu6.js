@@ -71,25 +71,31 @@ Notes:
     Any letters not spelling words FIRE or FURY are just ignored
     If multiple of the same words are found in a row then plural rules apply*/
 
+
 var fireAndFury = function(tweet) {
   
-  let result = tweet.match(/F[UI]R[EY]/g);
-  let decipher = []
+  tweet.split('').forEach(function(item){
+    if(item != 'E' && item != 'F' && item != 'I' && item != 'R' && item != 'U' && item != 'Y') return 'Fake tweet';
+  });
   
-  if(result === null) return 'Fake tweet.';
+  let decipher = [];
+
+  let result = tweet.replace(/FIRE/g, '!').replace(/FURY/g, '@').split('').filter((c) => c === '!' || c === '@');
+  
+  if(result === undefined || result === [] || result.length === 0 || result === NaN) return 'Fake tweet.';
   
   for(let i = 0; i < result.length; i += 1){
     
-    if(result[i] === 'FURY'){
-      if(result[i - 1] !== 'FURY') decipher.push('I am', 'furious.');
-      else if(result[i - 1] === 'FURY'){
+    if(result[i] === '@'){
+      if(result[i - 1] !== '@') decipher.push('I am', 'furious.');
+      else if(result[i - 1] === '@'){
         decipher.splice(decipher.lastIndexOf('furious.'), 0, 'really');
       }
     }
     
-    else if(result[i] === 'FIRE'){
-      if(result[i - 1] !== "FIRE") decipher.push('You', 'are fired!');
-      else if(result[i - 1] === 'FIRE'){
+    else if(result[i] === '!'){
+      if(result[i - 1] !== "!") decipher.push('You', 'are fired!');
+      else if(result[i - 1] === '!'){
         decipher.splice(decipher.lastIndexOf('are fired!'), 0, 'and you');
       }
     }
