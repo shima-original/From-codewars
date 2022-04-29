@@ -59,51 +59,31 @@ function withdraw(n) {
 }
 
 
-/*The President's phone is broken. He is not very happy.
-The only letters still working are uppercase E, F, I, R, U, Y.
-An angry tweet is sent to the department responsible for presidential phone maintenance.
-Decipher the tweet by looking for words with known meanings.
-    FIRE = "You are fired!"
-    FURY = "I am furious."
-If no known words are found, or unexpected letters are encountered, then it must be a "Fake tweet."
-Notes:
-    The tweet reads left-to-right.
-    Any letters not spelling words FIRE or FURY are just ignored
-    If multiple of the same words are found in a row then plural rules apply*/
-
-
-var fireAndFury = function(tweet) {
-  
-  tweet.split('').forEach(function(item){
-    if(item != 'E' && item != 'F' && item != 'I' && item != 'R' && item != 'U' && item != 'Y') return 'Fake tweet';
-  });
-  
-  let decipher = [];
-
-  let result = tweet.replace(/FIRE/g, '!').replace(/FURY/g, '@').split('').filter((c) => c === '!' || c === '@');
-  
-  if(result === undefined || result === [] || result.length === 0 || result === NaN) return 'Fake tweet.';
-  
-  for(let i = 0; i < result.length; i += 1){
-    
-    if(result[i] === '@'){
-      if(result[i - 1] !== '@') decipher.push('I am', 'furious.');
-      else if(result[i - 1] === '@'){
-        decipher.splice(decipher.lastIndexOf('furious.'), 0, 'really');
-      }
+/*The plugboard crosswired the 26 letters of the latin alphabet togther, so that an input into one letter could generate output as another letter. 
+If a wire was not present, then the input letter was unchanged. Each plugboard came with a maximum of 10 wires, 
+so at least six letters were not cross-wired.
+For example:
+    If a wire connects A to B, then an A input will generate a B output and a B input will generate an A output.
+    If no wire connects to C, then only a C input will generate a C output.
+Note
+In the actual usage of the original Enigma Machine, punctuation was encoded as words transmitted in the stream, in our code, anything that is not in the range A-Z will be returned unchanged.
+Kata
+The Plugboard class you will implement, will:
+    Take a list of wire pairs at construction in the form of a string, with a default behaviour of no wires configured. E.g. "ABCD" would wire A <-> B and C <-> D.
+    Validate that the wire pairings are legitimate. Raise an exception if not.
+    Implement the process method to translate a single character input into an output. */
+Plugboard=function(wires){
+  wires.toLowerCase();
+  function process(wire){
+    let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    for(let i = 0; i < alphabet.length; i += 1){
+      if(alphabet[i] === wire && i%2 == 1) wire = alphabet[i + 1];
+      else if(alphabet[i] === wire && i%2 == 0) wire = alphabet[i - 1];
+      return wire;
     }
-    
-    else if(result[i] === '!'){
-      if(result[i - 1] !== "!") decipher.push('You', 'are fired!');
-      else if(result[i - 1] === '!'){
-        decipher.splice(decipher.lastIndexOf('are fired!'), 0, 'and you');
-      }
-    }
-    
-   else{
-     return 'Fake tweet.';
-   }
-    
-  } return decipher.join(' ');  
+  }
+  return wires.split('').map(process).join('');
 }
+
+    
 
