@@ -71,28 +71,21 @@ The Plugboard class you will implement, will:
     Validate that the wire pairings are legitimate. Raise an exception if not.
     Implement the process method to translate a single character input into an output. */
 
-class Plugboard{    
-  constructor(wires){
+class Plugboard{  
+  constructor(wires = ''){
     this.wires = wires;
   }
-  process(){
-    let result = this.wires.toUpperCase().split('').map(function(wire){
+  process(wire){
           let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-          for(let i = 0; i < alphabet.length; i += 1){
-            if(alphabet[i] === wire && i%2 === 0){
-              wire = alphabet[i + 1];
-              return wire;
+          for(let j = 0; j < alphabet.length; j += 1){
+            if(alphabet[j] === wire){
+              let i = this.wires.indexOf(wire);
+              return this.wires[i + 1 - 2*(i%2)];
             } 
-            else if(alphabet[i] === wire && i%2 === 1) {
-              wire = alphabet[i - 1];
-              return wire;
-            }
             else {
               return wire;
             }
-         } 
-    }); 
-   return result.join('');
+         }
  }   
 }
 
