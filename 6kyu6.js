@@ -70,17 +70,27 @@ The Plugboard class you will implement, will:
     Take a list of wire pairs at construction in the form of a string, with a default behaviour of no wires configured. E.g. "ABCD" would wire A <-> B and C <-> D.
     Validate that the wire pairings are legitimate. Raise an exception if not.
     Implement the process method to translate a single character input into an output. */
-class Plugboard{   
+
+class Plugboard{    
   constructor(wires){
     this.wires = wires;
   }
   process(){
     let result = this.wires.toUpperCase().split('').map(function(wire){
-          let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+          let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
           for(let i = 0; i < alphabet.length; i += 1){
-            if(alphabet[i] === wire && i%2 === 1) wire = alphabet[i + 1];
-            else if(alphabet[i] === wire && i%2 === 0) wire = alphabet[i - 1];
-          } return wire;
+            if(alphabet[i] === wire && i%2 === 0){
+              wire = alphabet[i + 1];
+              return wire;
+            } 
+            else if(alphabet[i] === wire && i%2 === 1) {
+              wire = alphabet[i - 1];
+              return wire;
+            }
+            else {
+              return wire;
+            }
+         } 
     }); 
    return result.join('');
  }   
