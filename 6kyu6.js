@@ -59,31 +59,4 @@ function withdraw(n) {
 }
 
 
-/*The plugboard crosswired the 26 letters of the latin alphabet togther, so that an input into one letter could generate output as another letter. 
-If a wire was not present, then the input letter was unchanged. Each plugboard came with a maximum of 10 wires, 
-so at least six letters were not cross-wired.
-For example:
-    If a wire connects A to B, then an A input will generate a B output and a B input will generate an A output.
-    If no wire connects to C, then only a C input will generate a C output.
-In the actual usage of the original Enigma Machine, punctuation was encoded as words transmitted in the stream, in our code, anything that is not in the range A-Z will be returned unchanged.
-The Plugboard class you will implement, will:
-    Take a list of wire pairs at construction in the form of a string, with a default behaviour of no wires configured. E.g. "ABCD" would wire A <-> B and C <-> D.
-    Validate that the wire pairings are legitimate. Raise an exception if not.
-    Implement the process method to translate a single character input into an output. */
-
-class Plugboard{  
-  constructor(wires = ''){
-    this.wires = wires;
-  }
-  process(wire){
-          let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];         
-            if(alphabet.includes(wire)){
-              let i = this.wires.indexOf(wire);
-              return i == -1 ? wire : this.wires[i + 1 - 2*(i%2)];
-            } 
-            else {
-              return wire;
-            }
- }   
-}
 
