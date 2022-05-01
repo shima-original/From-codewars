@@ -76,8 +76,7 @@ class Plugboard{
     this.wires = wires;
   }
   process(wire){
-          let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-          
+          let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];         
             if(alphabet.includes(wire)){
               let i = this.wires.indexOf(wire);
               return i == -1 ? wire : this.wires[i + 1 - 2*(i%2)];
