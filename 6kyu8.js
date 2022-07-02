@@ -19,3 +19,6 @@ function getLengthOfMissingArray(arrayOfArrays) {
     if(curLength != nextLength - 1) return curLength + 1; 
   }
 }
+
+
+
