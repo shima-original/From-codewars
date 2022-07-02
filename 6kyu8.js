@@ -37,7 +37,6 @@ range(0, 30, 5);
 start, if omitted, defaults to 0; step defaults to 1.
 returns a list of integers from start to stop, incremented by step, exclusive.
 Note that ranges that stop before they start are considered to be zero-length instead of negative. */
-
 function range(start, end, step) {
   
   let result = [];
@@ -52,8 +51,10 @@ function range(start, end, step) {
   function stepFunction(a, b, c){
     result.push(a);
     a += c;
-    if(a < b) stepFunction(a, b, c);
-    return result;
+    if(a >= b) return result;
+    else {
+      return stepFunction(a, b, c);
+    }
   }
   
   stepFunction(start, end, step);
