@@ -43,24 +43,3 @@ function wave(str){
   return result;
 }
 
-/* Return the name of the winner. If there is no winner, return null. 
-There are no given candidates. An elector can vote for anyone. Each ballot contains only one name and represents one vote for this name. 
-A name is an arbitrary string, e.g. "A", "B", or "XJDHD". 
-The ballot-box is represented by an unsorted list of names. Each entry in the list corresponds to one vote for this name. 
-A name wins the election if it gets more than n/2 votes (n = number of all votes, i.e. n is equal to the size of the given list). */
-function getWinner(listOfBallots) {
-  let ballots = listOfBallots.length;
-  let resultObj = {};
-  
-  listOfBallots.forEach(function(elem, resultObj){
-    if(Object.keys(resultObj).includes(elem)) resultObj.elem += 1;
-    else{
-      resultObj.elem = 1;
-    }
-    return resultObj;
-  });
-     let values = Object.values(resultObj).sort((a, b) => a - b);
-     if(values[0] === values[1]) return null; 
-      if((values[0]/ballots) > 0.5) return Object.keys(resultObj).find(key => resultObj[key] === values[0]); 
-      return null;
-}
