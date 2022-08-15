@@ -43,3 +43,19 @@ function wave(str){
   return result;
 }
 
+/*The number 1035 is the smallest integer that exhibits a non frequent property: one its multiples, 3105 = 1035 * 3, 
+has its same digits but in different order, in other words, 3105, is one of the permutations of 1035.
+The number 125874 is the first integer that has this property when the multiplier is 2, thus: 125874 * 2 = 251748
+Make the function search_permMult(), that receives an upper bound, nMax and a factor k and will output the amount of pairs bellow nMax 
+that are permuted when an integer of this range is multiplied by k. The pair will be counted if the multiple is less than nMax, too */
+function search_permMult(nMax, k) { 
+  let counter = 0; 
+  for(let i = k; i < nMax; i += k){
+    let a = i;
+    let b = i / k;    
+    if (`${a}`.split("").sort().join("") === `${b}`.split("").sort().join("")) {
+      counter += 1;
+    }
+  }  
+  return counter;
+}
