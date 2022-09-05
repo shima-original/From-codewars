@@ -153,3 +153,30 @@ function findTheNumberPlate(customerID){
      return `${firstLetter}${secondLetter}${thirdLetter}${num}`;
   
 }
+
+
+/* Write a simple parser that will parse and run Deadfish.
+Deadfish has 4 commands, each 1 character long:
+    i increments the value (initially 0)
+    d decrements the value
+    s squares the value
+    o outputs the value into the return array
+Invalid characters should be ignored. */
+
+function parse( data )
+{ let arr = data.split('');
+  let value = 0;
+  let result = [];
+  
+ for(let i = 0; i < arr.length; i += 1){
+   if(arr[i] === 'i') value += 1;
+   else if(arr[i] === 'd') value -= 1;
+   else if(arr[i] === 's') value = Math.pow(value, 2);
+   else if(arr[i] === 'o') result.push(value);
+   else{
+     continue;
+   }
+ } 
+  return result;
+}
+
