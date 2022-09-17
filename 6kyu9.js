@@ -48,3 +48,19 @@ function Mormons(startingNumber, reach, target) {
     }
     return newMormons(counter, number, reach, target); 
 }
+
+/*Find the missing letter
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+Example:
+['a','b','c','d','f'] -> 'e' ['O','Q','R','S'] -> 'P' */
+
+function findMissingLetter(array)
+{
+  let str = array.join('');
+  let first = str.charCodeAt(0);
+  for(let i = 1; i < array.length; i += 1){
+    if(array[i].charCodeAt(0) != first + i) return String.fromCharCode(first + i);
+  }
+}
