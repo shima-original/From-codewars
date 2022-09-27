@@ -10,3 +10,18 @@ function transitiveCycle() {
 }
 
 
+/*You are given three integer inputs: length, minimum, and maximum.
+Return a string that:
+    Starts at minimum
+    Ascends one at a time until reaching the maximum, then
+    Decends one at a time until reaching the minimum
+    repeat until the string is the appropriate length */
+
+function ascendDescend(length, minimum, maximum) {
+  let result = '';
+  for(let i = minimum; i < maximum; i += 1) result += i;
+  for(let i = maximum; i > minimum; i -= 1) result += i;
+  if(minimum === maximum) result = minimum.toString();
+  return result.repeat(length).slice(0, length);
+}
+
