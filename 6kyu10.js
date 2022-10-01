@@ -61,3 +61,15 @@ function grabscrab(anagram, dictionary) {
   }
   return result;
 }
+
+
+/* Write a function that will check whether ANY permutation of the characters of the input string is a palindrome. 
+Bonus points for a solution that is efficient and/or that uses only built-in language functions. 
+Deem yourself brilliant if you can come up with a version that does not use any function whatsoever.*/
+
+function permuteAPalindrome (input) { 
+  let set = new Set;
+  input.split('').forEach((elem) => set[set.has(elem) ? 'delete' : 'add'](elem));
+  return set.size < 2;
+}
+
