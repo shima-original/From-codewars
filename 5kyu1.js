@@ -130,3 +130,30 @@ function chooseBestSum(t, k, ls) {
     recurseTowns();
     return biggest || null;
 }
+
+
+/* An Array consisting of "0" and "1"'s also called a binary array is given as an input.
+Find the length of the longest contiguous subarray which consists of Equal number of "0"s and "1"s. */
+function binarray(a) {
+  
+  const ind = {0 : -1};
+  let counter = 0;
+  let maxLength = 0;
+  let len = 0;
+  
+  for(let i = 0; i < a.length; i += 1) {
+    if(a[i] === 1) counter += 1;
+    else {
+      counter -= 1;
+    }
+    if (counter in ind) {
+      len = i - ind[counter];
+      maxLength = len > maxLength ? len : maxLength;
+    }
+    else {
+      ind[counter] = i;
+    }
+  }
+  
+  return maxLength;
+}
