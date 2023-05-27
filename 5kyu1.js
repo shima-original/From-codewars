@@ -157,3 +157,27 @@ function binarray(a) {
   
   return maxLength;
 }
+
+
+/* Given a string str consisting of some number of "(" and ")" characters, 
+your task is to find the longest substring in str such that all "(" in the substring are closed by a matching ")". 
+The result is the length of that substring */
+
+function findLongest(str){
+  let max = 0;
+  let start = -1;
+  let arr = [];
+  for(let i = 0; i < str.length; i += 1){
+    if(str[i] === `(`) arr.push(i);
+    else if (str[i] === `)`) {
+      if(arr.length > 0){
+        arr.pop();
+        let length = i - ((arr.length > 0) ? (arr[arr.length - 1]) : start);
+        max = Math.max(length, max);
+      } else {
+        start = i;
+        }
+    }
+  } return max;
+}
+
